@@ -3,6 +3,11 @@ var jogoEncerrado = false;
 var posicoes;
 var verificacao;
 var table = document.getElementById("table").cloneNode(true);
+var countUnchecked = 0;
+var pontuacao = {
+	"o": 0,
+	"x": 0
+}
 
 function createPosicoes(){
 	var posicoes = {
@@ -46,13 +51,20 @@ function jogada(element){
 		element.appendChild(aux);
 		var informacaoJogadorVez = document.getElementById("imgJogador");
 		informacaoJogadorVez.setAttribute("src", "assets/imagens/" + (jogadorDaVez == "o" ? "x" : "o") + ".png");
-		posicoes[element.id] = jogadorDaVez;		
+		posicoes[element.id] = jogadorDaVez;
+		countUnchecked++;	
 		if(verificaGanhador()){
 			jogoEncerrado = true;
 			document.getElementById("imgJogador").setAttribute("src", "assets/imagens/" + jogadorDaVez + ".png");
 			document.getElementById("textoInformativo").innerHTML = "Jogador Vencedor da Partida !!!";			
-			document.getElementById("reiniciar").style.display = "block";
+			//document.getElementById("reiniciar").style.display = "block";
+			pontuacao[jogadorDaVez]++;
+			document.getElementById("pontuacao" + jogadorDaVez.toUpperCase()).innerHTML = pontuacao[jogadorDaVez];
 			return;
+		}else if(countUnchecked == 9) {
+			jogoEncerrado = true;
+			document.getElementById("textoInformativo").innerHTML = "Empate";
+			document.getElementById("imgJogador").setAttribute("src", "assets/imagens/empate.png");
 		}
 		jogadorDaVez = (jogadorDaVez == "o" ? "x" : "o");		
 	}
@@ -78,7 +90,8 @@ function reiniciar(){
 	posicoes =  createPosicoes();
 	document.getElementById("imgJogador").setAttribute("src", "assets/imagens/" + jogadorDaVez + ".png");
 	document.getElementById("textoInformativo").innerHTML = "Jogador da vez é:";			
-	document.getElementById("reiniciar").style.display = "none";
+	//document.getElementById("reiniciar").style.display = "none";
 	document.getElementById("table").remove();
 	document.getElementById("tabuleiro").appendChild(table.cloneNode(true));
+	countUnchecked = 0;
 }

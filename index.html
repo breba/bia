@@ -9,9 +9,15 @@
 <body>
 
 	<div id="cabecalho">
-		<h3 id="textoInformativo">Jogador da vez é: </h3>
+		<h4>Placar</h4>
+			<label id="pontuacaoO">0</label><img src="assets/imagens/o.png">
+			<img src="assets/imagens/x.png"><label id="pontuacaoX">0</label>
+
+		<h3 id="textoInformativo">Jogador da vez é:</h3>
 		<img id="imgJogador" src="assets/imagens/o.png">
 	</div>
+
+
 
 	<div id="tabuleiro">
 		<table id="table" align="center">
@@ -36,8 +42,9 @@
 			</tbody>
 		</table>
 	</div>
+
 	<div id="reiniciar">
-		<button id="btnReiniciar" onclick="reiniciar()">Reiniciar Partida</button>
+		<button id="btnReiniciar" onclick="reiniciar()">Nova Partida</button>
 	</div>
 	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
