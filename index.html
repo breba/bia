@@ -4,36 +4,41 @@
 	<title>Jogo da Velha</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
-	<script type="text/javascript" src="assets/js/main.js"></script>
+	
 </head>
 <body>
 
 	<div id="cabecalho">
-		<h3>Jogador da vez é: </h3>
+		<h3 id="textoInformativo">Jogador da vez é: </h3>
 		<img id="imgJogador" src="assets/imagens/o.png">
 	</div>
 
-	<table align="center">
-		<tbody>
-			<tr>
-				<td onclick="jogada(this)" id="c11"></td>
-				<td onclick="jogada(this)" id="c12"></td>
-				<td onclick="jogada(this)" id="c13"></td>
-			</tr>
+	<div id="tabuleiro">
+		<table id="table" align="center">
+			<tbody>
+				<tr>
+					<td onclick="jogada(this)" id="c11"></td>
+					<td onclick="jogada(this)" id="c12"></td>
+					<td onclick="jogada(this)" id="c13"></td>
+				</tr>
 
+				<tr>
+					<td onclick="jogada(this)" id="c21"></td>
+					<td onclick="jogada(this)" id="c22"></td>
+					<td onclick="jogada(this)" id="c23"></td>
+				</tr>
 
-			<tr>
-				<td onclick="jogada(this)" id="c21"></td>
-				<td onclick="jogada(this)" id="c22"></td>
-				<td onclick="jogada(this)" id="c23"></td>
-			</tr>
-
-			<tr>
-				<td onclick="jogada(this)" id="c31"></td>
-				<td onclick="jogada(this)" id="c32"></td>
-				<td onclick="jogada(this)" id="c33"></td>
-			</tr>
-		</tbody>
-	</table>
+				<tr>
+					<td onclick="jogada(this)" id="c31"></td>
+					<td onclick="jogada(this)" id="c32"></td>
+					<td onclick="jogada(this)" id="c33"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="reiniciar">
+		<button id="btnReiniciar" onclick="reiniciar()">Reiniciar Partida</button>
+	</div>
+	<script type="text/javascript" src="assets/js/main.js"></script>
 </body>
 </html>
