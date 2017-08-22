@@ -5,7 +5,7 @@ var verificacao;
 var table = document.getElementById("table").cloneNode(true);
 
 function createPosicoes(){
-	posicoes = {
+	var posicoes = {
 	"c11": "unchecked",
 	"c12": "unchecked",
 	"c13": "unchecked",
@@ -17,11 +17,12 @@ function createPosicoes(){
 	"c31": "unchecked",
 	"c32": "unchecked",
 	"c33": "unchecked"
-	}
+	};
+	return posicoes;
 }
 
 function createVerificacao(){
-	verificacao = [
+	var verificacao = [
 		["c11","c12","c13"], 
 		["c21","c22","c23"],
 		["c31","c32","c33"],
@@ -30,10 +31,11 @@ function createVerificacao(){
 		["c13","c23","c33"],
 		["c11","c22","c33"],
 		["c13","c22","c31"]];
+	return verificacao;
 }
 
-createPosicoes();
-createVerificacao();
+posicoes = createPosicoes();
+verificacao = createVerificacao();
 
 function jogada(element){
 	var img = document.getElementById(element.id + "i");
@@ -73,7 +75,7 @@ function verificaGanhador(){
 function reiniciar(){
 	jogadorDaVez = "o";
 	jogoEncerrado = false;
-	createPosicoes();
+	posicoes =  createPosicoes();
 	document.getElementById("imgJogador").setAttribute("src", "assets/imagens/" + jogadorDaVez + ".png");
 	document.getElementById("textoInformativo").innerHTML = "Jogador da vez é:";			
 	document.getElementById("reiniciar").style.display = "none";
